@@ -1,0 +1,34 @@
+<head>
+	<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}" />
+</head>
+
+<div class="main">
+	<span id="title">SEO Brisk Search</span>
+	<span id="desc"
+		>Enter a query string for which our bot scrapes SEO information from top
+		10 websites of the Google search results.</span
+	>
+	<br />
+	<form class="main-search" action="/" method="post">
+		<div class="inp">
+			<input
+				type="text"
+				autocomplete="off"
+				placeholder="Enter a keyword ?"
+				id="search"
+				name="search-input"
+			/>
+		</div>
+		<button class="btn" name="submit" type="submit">
+			<div class="magnifying">
+				<div class="lens"></div>
+				<div class="handle"></div>
+			</div>
+		</button>
+	</form>
+	{%if content|length > 1 %}
+	{%for i in content%}
+	<li>{{i["link"]}}</li>
+	{%endfor%}
+	{% endif %}
+</div>
